@@ -92,6 +92,7 @@ def gameloop():
         # -- Draw here
         pygame.draw.rect(screen, BLUE, (x_val, y_val, ball_width, ball_width)) 
         pygame.draw.rect(screen, WHITE, (x_padd, y_padd, padd_width, padd_length))
+                            
         # -- display lives
         font = pygame.font.Font(None, 50)
         text = font.render("Lives: " + str(lives), 1, WHITE)
