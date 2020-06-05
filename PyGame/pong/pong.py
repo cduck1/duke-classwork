@@ -62,26 +62,26 @@ while not done:
 
 #Next event 
 
-# -- Game logic goes after this comment 
+    # -- Game logic goes after this comment 
 
-x_val = x_val + x_direction 
+    x_val = x_val + x_direction 
 
-y_val = y_val + y_direction 
+    y_val = y_val + y_direction 
 
-# -- Screen background is BLACK 
+    # -- Screen background is BLACK 
 
-screen.fill (BLACK) 
+    screen.fill (BLACK) 
 
-# -- Draw here 
+    # -- Draw here 
 
-pygame.draw.rect(screen, BLUE, (x_val, y_val, ball_width, ball_width)) 
+    pygame.draw.rect(screen, BLUE, (x_val, y_val, ball_width, ball_width)) 
 
-# -- flip display to reveal new position of objects 
+    # -- flip display to reveal new position of objects 
 
-pygame.display.flip() 
+    pygame.display.flip() 
 
-# - The clock ticks over 
+    # - The clock ticks over 
 
-clock.tick(60) 
+    clock.tick(60) 
 
 pygame.quit() 
