@@ -93,7 +93,7 @@ def gameloop():
         pygame.draw.rect(screen, BLUE, (x_val, y_val, ball_width, ball_width)) 
         pygame.draw.rect(screen, WHITE, (x_padd, y_padd, padd_width, padd_length))
 
-        # -- display score
+        # -- display score (glitches when the ball goes off the left of the screen
         font = pygame.font.Font(None, 45)
         text = font.render("Score: " + str(score), 1, WHITE)
         screen.blit(text, (310, 40))
