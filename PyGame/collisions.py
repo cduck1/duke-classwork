@@ -33,6 +33,7 @@ def gameloop():
     x_offset = -1
     y_offset = 1
     lives = 3
+    
     while not done:
         # -- User input and controls 
         for event in pygame.event.get(): 
