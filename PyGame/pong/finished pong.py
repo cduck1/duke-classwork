@@ -55,7 +55,7 @@ def singleplayer_gameloop():
     padd_width = 15 
     padd_length = 60 
     x_padd = 0 
-    y_padd = 20 
+    y_padd = 210 
     x_val = 150 
     y_val = 200 
     ball_width = 20 
@@ -69,11 +69,11 @@ def singleplayer_gameloop():
         for event in pygame.event.get(): 
             if event.type == pygame.QUIT: 
                 done = True
-            keys = pygame.key.get_pressed()
-            if keys[pygame.K_UP]:
-                y_padd = y_padd - 5
-            if keys[pygame.K_DOWN]:
-                y_padd = y_padd + 5
+        keys = pygame.key.get_pressed()
+        if keys[pygame.K_UP]:
+            y_padd = y_padd - 5
+        if keys[pygame.K_DOWN]:
+            y_padd = y_padd + 5
             
         # -- Game logic goes after this comment
         # -- The paddle can't go off the top or bottom
@@ -172,11 +172,11 @@ def ai_gameloop():
         for event in pygame.event.get(): 
             if event.type == pygame.QUIT: 
                 done = True
-            keys = pygame.key.get_pressed()
-            if keys[pygame.K_UP]:
-                y_padd = y_padd - 5
-            if keys[pygame.K_DOWN]:
-                y_padd = y_padd + 5
+        keys = pygame.key.get_pressed()
+        if keys[pygame.K_UP]:
+            y_padd = y_padd - 5
+        if keys[pygame.K_DOWN]:
+            y_padd = y_padd + 5
             
         # -- Game logic goes after this comment
         # -- The paddles can't go off the top or bottom
@@ -238,9 +238,9 @@ def ai_gameloop():
             x_offset = x_offset * -1
         
         # -- getting the ai to track the ball
-        if ai_y_padd < y_val:
+        if ai_y_padd + 5 < y_val:
             ai_y_padd = ai_y_padd + 2
-        elif ai_y_padd > y_val:
+        elif ai_y_padd - 5 > y_val:
             ai_y_padd = ai_y_padd - 2
             
         # -- Screen background is BLACK 
