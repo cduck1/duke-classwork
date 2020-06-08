@@ -1,3 +1,6 @@
+### SRC - Good work on the Parabolic curve, but it would have been nice to
+### have some more changes, like blue sky etc.
+
 import pygame 
 
 # -- Global Constants 
