@@ -105,7 +105,7 @@ def singleplayer_gameloop():
             y_offset = -y_offset
                
         # -- Check the criteria for hitting the paddle and getting the ball speed to increase with a score variable
-        if x_val < 15 and y_val > y_padd and y_val < y_padd + 60:
+        if x_val < 15 and y_val >= y_padd and y_val <= y_padd + 60:
             x_offset = x_offset * -1
             score = score + 1
             x_offset += 1
