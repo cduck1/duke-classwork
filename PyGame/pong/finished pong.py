@@ -1,3 +1,6 @@
+### SRC - This is an excellent effort at this stage. There is still much to
+### learn to improve your code, as you should try and only write code once if you can.
+
 import pygame
 import time
 # -- Global Constants 

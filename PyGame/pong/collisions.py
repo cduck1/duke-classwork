@@ -106,7 +106,7 @@ def gameloop():
         # -- getting the game to end when lives = 0
         if lives == 0:
             done = True
-            gameover()
+            gameover()  
     
         # -- flip display to reveal new position of objects 
         pygame.display.flip() 
