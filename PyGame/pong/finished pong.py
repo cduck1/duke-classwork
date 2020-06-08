@@ -122,14 +122,14 @@ def singleplayer_gameloop():
         pygame.draw.rect(screen, WHITE, (x_padd, y_padd, padd_width, padd_length))
 
         # -- display score (glitches when the ball goes off the left of the screen
-        font = pygame.font.Font(None, 45)
+        font = pygame.font.Font(None, 30)
         text = font.render("Score: " + str(score), 1, WHITE)
-        screen.blit(text, (310, 40))
+        screen.blit(text, (10, 30))
                             
         # -- display lives
-        font = pygame.font.Font(None, 45)
+        font = pygame.font.Font(None, 30)
         text = font.render("Lives: " + str(lives), 1, WHITE)
-        screen.blit(text, (310, 10))
+        screen.blit(text, (10, 10))
         
         # -- getting the game to end when lives = 0
         if lives == 0:
@@ -238,9 +238,9 @@ def ai_gameloop():
             x_offset = x_offset * -1
         
         # -- getting the ai to track the ball
-        if ai_y_padd + 5 < y_val:
+        if ai_y_padd < y_val:
             ai_y_padd = ai_y_padd + 2
-        elif ai_y_padd - 5 > y_val:
+        elif ai_y_padd > y_val:
             ai_y_padd = ai_y_padd - 2
             
         # -- Screen background is BLACK 
