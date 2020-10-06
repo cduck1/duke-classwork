@@ -64,7 +64,7 @@ class player(pygame.sprite.Sprite):
     def update(self):
         self.rect.y = self.rect.y + self.speed
     def player_set_speed(val):
-        player_set
+        player_set_speed(1) 
 #End Class
 
 # Create the invaderships
@@ -103,6 +103,8 @@ while not done:
                 
     # -- Game logic goes after this comment
     all_sprites_group.update()
+    # -- when invader hits the player add 5 to score.
+    player_hit_group = pygame.sprite.spritecollide(player, invader_group, True)
     # -- Screen background is BLACK
     screen.fill (BLACK)
     # -- Draw here
