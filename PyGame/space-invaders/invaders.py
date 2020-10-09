@@ -104,7 +104,7 @@ while not done:
     # -- Game logic goes after this comment
     all_sprites_group.update()
     # -- when invader hits the player add 5 to score.
-    player_hit_group = pygame.sprite.spritecollide(player, invader_group, True)
+    player_hit_group = pygame.sprite.spritecollide(player, invader_group, True, True)
     # -- Screen background is BLACK
     screen.fill (BLACK)
     # -- Draw here
