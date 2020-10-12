@@ -67,19 +67,6 @@ class player(pygame.sprite.Sprite):
         player_set_speed(1) 
 #End Class
 
-class bullet(pygame.sprite.Sprite):
-    def __init__(self, color, width, height, speed):
-        super().__init__()
-        self.image = pygame.Surface([width, height])
-        self.image.fill(color)
-        self.rect = self.image.get_rect()
-        self.rect.x = 300
-        self.rect.y = 470
-        self.speed = 0
-    def update(self):
-        self.rect.y = self.rect.y + self.speed
-    def player_set():
-
 # Create the invaderships
 number_of_ships = 10 # we are creating 50 invaders
 for x in range (number_of_ships):
@@ -92,11 +79,6 @@ for x in range (number_of_ships):
 my_player = player(YELLOW, 10, 10)
 player_group.add(my_player)
 all_sprites_group.add(my_player)
-
-# Create the bullet
-my_bullet = bullet(BLUE, 2, 2, 3)
-bullet_group.add(my_bullet)
-all_sprites_group.add(my_bullet)
 
 # -- Game Loop
 while not done:
