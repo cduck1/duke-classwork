@@ -58,7 +58,7 @@ class player(pygame.sprite.Sprite):
         # Set the position of the sprite
         self.rect = self.image.get_rect()
         self.rect.x = 300
-        self.rect.y = 470
+        self.rect.y = 460
         self.speed = 0
         #End Procedure
     def update(self):
@@ -104,7 +104,7 @@ while not done:
     # -- Game logic goes after this comment
     all_sprites_group.update()
     # -- when invader hits the player add 5 to score.
-    player_hit_group = pygame.sprite.spritecollide(player, invader_group, True, True)
+    player_hit_group = pygame.sprite.spritecollide(my_player, invader_group, True)
     # -- Screen background is BLACK
     screen.fill (BLACK)
     # -- Draw here
