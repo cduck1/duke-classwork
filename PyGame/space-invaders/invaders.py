@@ -59,12 +59,19 @@ class player(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.x = 300
         self.rect.y = 460
-        self.speed = 0
+        self.speed = speed
         #End Procedure
     def update(self):
-        self.rect.y = self.rect.y + self.speed
-    def player_set_speed(val):
-        player_set_speed(1) 
+        if self.rect.x > 630:
+            self.rect.x = 630
+        elif self.rect.x < 0:
+            self.rect.x = 0
+    def moveRight(self, speed):
+        self.rect.x += speed
+    #End Procedure
+    def moveLeft(self, speed):
+        self.rect.x -= speed
+    #End Procedure 
 #End Class
 
 # Create the invaderships
@@ -92,14 +99,16 @@ while not done:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             done = True
+            
         elif event.type == pygame.KEYDOWN: # - a key is down
-            if event.key == pygame.K_LEFT: # - if the left key pressed
-                player.player_set_speed(-3) # speed set to -3
-            elif event.key == pygame.K_RIGHT: # - if the right key pressed
-                player.player_set_speed(3) # speed set to 3
-        elif event.type == pygame.KEYUP: # - a key released
-            if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
-                player.player_set_speed(0) # speed set to 0
+            if event.key == pygame.K_ESCAPE: # - if the escape key pressed
+                done = True
+            #End If
+            keys = pygame.key.get_pressed()
+            if keys[pygame.K_LEFT]:
+                player.moveLeft(3)
+            if keys[pygame.K_RIGHT]:
+                player.moveRight(3)
                 
     # -- Game logic goes after this comment
     all_sprites_group.update()
