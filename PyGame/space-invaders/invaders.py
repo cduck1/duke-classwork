@@ -7,6 +7,7 @@ BLACK = (0,0,0)
 WHITE = (255,255,255)
 BLUE = (50,50,255)
 YELLOW = (255,255,0)
+RED = (255,0,0)
 # -- Initialise PyGame
 pygame.init()
 # -- Blank Screen
@@ -120,7 +121,7 @@ while not done:
     keys = pygame.key.get_pressed()
     if keys[pygame.K_UP]:
         # Create the bullet
-        my_bullet = bullet(YELLOW, 2, 2)
+        my_bullet = bullet(RED, 2, 2)
         bullet_group.add(my_bullet)
         all_sprites_group.add(my_bullet)
         bullet.rect.x = (player.rect.x) + 4
