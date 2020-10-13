@@ -55,11 +55,12 @@ class player(pygame.sprite.Sprite):
         # Create a sprite and fill it with colour
         self.image = pygame.Surface([width,height])
         self.image.fill(color)
+        pygame.draw.rect(self.image, color, [300, 400, width, height])
         # Set the position of the sprite
         self.rect = self.image.get_rect()
         self.rect.x = 300
         self.rect.y = 460
-        self.speed = speed
+        self.speed = 1
         #End Procedure
     def update(self):
         if self.rect.x > 630:
@@ -93,22 +94,15 @@ while not done:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             done = True
-        #End If
-    #Next event
-    # -- User inputs here
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            done = True
-            
         elif event.type == pygame.KEYDOWN: # - a key is down
             if event.key == pygame.K_ESCAPE: # - if the escape key pressed
                 done = True
             #End If
-            keys = pygame.key.get_pressed()
-            if keys[pygame.K_LEFT]:
-                player.moveLeft(3)
-            if keys[pygame.K_RIGHT]:
-                player.moveRight(3)
+    keys = pygame.key.get_pressed()
+    if keys[pygame.K_LEFT]:
+        my_player.moveLeft(3)
+    if keys[pygame.K_RIGHT]:
+        my_player.moveRight(3)
                 
     # -- Game logic goes after this comment
     all_sprites_group.update()
