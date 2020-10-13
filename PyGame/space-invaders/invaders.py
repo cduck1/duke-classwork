@@ -55,12 +55,13 @@ class player(pygame.sprite.Sprite):
         # Create a sprite and fill it with colour
         self.image = pygame.Surface([width,height])
         self.image.fill(color)
-        pygame.draw.rect(self.image, color, [300, 400, width, height])
         # Set the position of the sprite
         self.rect = self.image.get_rect()
         self.rect.x = 300
         self.rect.y = 460
         self.speed = 1
+        bullet_count = 50
+        score = 0
         #End Procedure
     def update(self):
         if self.rect.x > 630:
@@ -72,6 +73,24 @@ class player(pygame.sprite.Sprite):
     #End Procedure
     def moveLeft(self, speed):
         self.rect.x -= speed
+    #End Procedure 
+#End Class
+
+class bullet(pygame.sprite.Sprite):
+    # Define the constructor for invader
+    def __init__(self, color, width, height):
+        # Call the sprite constructor
+        super().__init__()
+        # Create a sprite and fill it with colour
+        self.image = pygame.Surface([width,height])
+        self.image.fill(color)
+        # Set the position of the sprite
+        self.rect = self.image.get_rect()
+        self.speed = 2
+        #End Procedure
+    def update(self):
+        self.rect.y -= 3
+        
     #End Procedure 
 #End Class
 
@@ -99,6 +118,15 @@ while not done:
                 done = True
             #End If
     keys = pygame.key.get_pressed()
+    if keys[pygame.K_UP]:
+        # Create the bullet
+        my_bullet = bullet(YELLOW, 2, 2)
+        bullet_group.add(my_bullet)
+        all_sprites_group.add(my_bullet)
+        bullet.rect.x = (player.rect.x) + 4
+        bullet.rect.y = player.rect.y
+        player.bullet_count = player.bullet_count - 1
+        print("Bullet count: " + player.bullet_count)
     if keys[pygame.K_LEFT]:
         my_player.moveLeft(3)
     if keys[pygame.K_RIGHT]:
@@ -108,6 +136,13 @@ while not done:
     all_sprites_group.update()
     # -- when invader hits the player add 5 to score.
     player_hit_group = pygame.sprite.spritecollide(my_player, invader_group, True)
+    # -- when invader hits the bullet add 5 to score.
+    bullet_hit_group = pygame.sprite.spritecollide(my_bullet, invader_group, True)
+    if bullet_hit_group == True:
+        player.score = player.score + 5
+    if bullet.rect.y < -2:
+            bullet_list.remove(bullet)
+            all_sprites_list.remove(bullet)
     # -- Screen background is BLACK
     screen.fill (BLACK)
     # -- Draw here
